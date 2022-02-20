@@ -16,6 +16,11 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const clearText = () => {
+        let newText = ``;
+        setText(newText);
+    }
+
     const changeText = (event) => {
        console.log(`Text Changed`);
        setText(event.target.value); // This will allow us to enter text inside the textarea.
@@ -37,6 +42,10 @@ export default function TextForm(props) {
                 <button className="btn btn-primary" onClick={handleUpClick}>Convert To Uppercase</button>
 
                 <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Lowercase</button>
+                
+                <button className="btn btn-primary mx-2" onClick={clearText}>Clear Text</button>
+
+                <a href="/" className="btn btn-primary mx-2" value={setText} download>Download Text</a>
             </div>
 
             <div className="container my-4">
