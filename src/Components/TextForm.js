@@ -10,17 +10,23 @@ export default function TextForm(props) {
         setText(newText);
     }
 
+    const handleLoClick = () => {
+        console.log(`Upper Case Was Clicked`);
+        let newText = text.toLowerCase();
+        setText(newText);
+    }
+
     const changeText = (event) => {
        console.log(`Text Changed`);
        setText(event.target.value); // This will allow us to enter text inside the textarea.
     }
 
-    const [text, setText] = useState(`Enter The Message To Convert It To Upper Case`);
+    const [text, setText] = useState(``);
     // text = "new text"; // Wrong way to change the text
     // setText("New Text"); // Correct way to change the text
     return (
         <>
-            <div>
+            <div className="container">
                 <div className="mb-3">
                      <h2>{props.heading}</h2>
 
@@ -29,6 +35,18 @@ export default function TextForm(props) {
 
                 </div>
                 <button className="btn btn-primary" onClick={handleUpClick}>Convert To Uppercase</button>
+
+                <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Lowercase</button>
+            </div>
+
+            <div className="container my-4">
+                <h1>Text Summary</h1>
+                <p>{text.split("").length} words and {text.length} characters.</p>
+
+                <p>Average Time Required To Read Above Content Is: {0.008 * text.split("").length} Minutes</p>
+
+                <h2>Preview</h2>
+                <p>{text}</p>
             </div>
         </>
     )
