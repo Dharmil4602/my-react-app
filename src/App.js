@@ -1,6 +1,7 @@
 import './App.css';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
-import TextForm from './Components/TextForm';
+// import TextForm from './Components/TextForm';
 
 // let myName = `Dharmil Shah`
 function App() {
@@ -14,7 +15,8 @@ function App() {
     <Navbar title="This is title"/>
     {/* <Navbar/> */}
     <div className="container">
-     <TextForm heading="Enter your message"/>
+     {/* <TextForm heading="Enter your message"/> */}
+     <About/>
     </div>
     </>
   );
