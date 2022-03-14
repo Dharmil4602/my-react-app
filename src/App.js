@@ -27,13 +27,18 @@ function App() {
     if (darkMode === `light`) {
       setDarkMode(`dark`);
       document.body.style.backgroundColor = `grey`;
+      // document.body.style.color = `white`;
       showAlert(`Dark mode enabled`, `success`);
+      document.title = `Dark Mode Enabled`;
+      
     }
     else
     {
       setDarkMode(`light`);
       document.body.style.backgroundColor = `white`;
+      // document.body.style.color = `blacks`;
       showAlert(`Light mode enabled`, `success`);
+      document.title = `Light Mode Enabled`;
     }
   }
 
