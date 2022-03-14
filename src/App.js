@@ -1,9 +1,18 @@
 import './App.css';
-import React, {useState} from 'react';
-// import About from './Components/About';
+import React, { useState } from 'react';
+import About from './Components/About';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import Alert from './Components/Alert';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+// import { Routes ,Route } from 'react-router-dom';
+// import Routes from 'react-router-dom';
+
 
 // let myName = `Dharmil Shah`
 function App() {
@@ -12,14 +21,14 @@ function App() {
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
-      setAlert({
-          msg: message,
-          type: type
-      })
+    setAlert({
+      msg: message,
+      type: type
+    })
 
-      setTimeout(() => {
-        setAlert(null);
-      }, 2000);
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
 
 
@@ -30,10 +39,9 @@ function App() {
       // document.body.style.color = `white`;
       showAlert(`Dark mode enabled`, `success`);
       document.title = `Dark Mode Enabled`;
-      
+
     }
-    else
-    {
+    else {
       setDarkMode(`light`);
       document.body.style.backgroundColor = `white`;
       // document.body.style.color = `blacks`;
@@ -48,14 +56,25 @@ function App() {
     // {} are used to implement javascript in between html
 
     // Here We have added Navbar Component. Means whatever code we are writing related to navbar will be automatically effected here. In fact importing Navbar is also done automatically by just writing <Navbar/> here
+    
+    // In React router dom, according to latest version, Switch is replaced with Routes and in the terminal for installing react router dom we need to specify the version also. npm install react-router-dom@6, this is the format we need to run.
+
+
     <>
-    <Navbar title="This is title" mode={darkMode} toggleMode={toggleMode}/>
-     <Alert alert={alert}/>
-    {/* <Navbar/> */}
-    <div className="container">
-     <TextForm showAlert={showAlert} heading="Enter your message"/>
-     {/* <About/> */}
-    </div>
+      <Router>
+        <Navbar title="This is title" mode={darkMode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        {/* <Navbar/> */}
+        <div className="container">
+          <Routes>
+            {/* We should use the 'exact' word for the precise location of the file in order to avoid confusion */}
+            <Route exact path="/about" element={<About/>}>
+            </Route>
+            <Route exact path="" element={<TextForm showAlert={showAlert} heading="Enter your message" />}>
+            </Route>
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
