@@ -42,13 +42,13 @@ export default function TextForm(props) {
                     <textarea className="form-control" value={text} onChange={changeText} id="myBox" rows="8"></textarea>
 
                 </div>
-                <button className="btn btn-primary" onClick={handleUpClick}>Convert To Uppercase</button>
+                <button disabled={text.length===0} className="btn btn-primary" onClick={handleUpClick}>Convert To Uppercase</button>
 
-                <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Lowercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={handleLoClick}>Convert To Lowercase</button>
                 
-                <button className="btn btn-primary mx-2" onClick={clearText}>Clear Text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-2" onClick={clearText}>Clear Text</button>
 
-                <a href="/" className="btn btn-primary mx-2" value={setText} download>Download Text</a>
+                <a disabled={text.length===0} href="/" className="btn btn-primary mx-2" value={setText} download>Download Text</a>
             </div>
 
             <div className="container my-4">

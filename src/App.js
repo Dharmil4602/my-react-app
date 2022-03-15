@@ -34,8 +34,8 @@ function App() {
   const toggleMode = () => {
     if (darkMode === `light`) {
       setDarkMode(`dark`);
-      document.body.style.backgroundColor = `grey`;
-      // document.body.style.color = `white`;
+      document.body.style.backgroundColor = `black`;
+      document.body.style.color = `white`;
       showAlert(`Dark mode enabled`, `success`);
       document.title = `Dark Mode Enabled`;
 
@@ -43,7 +43,7 @@ function App() {
     else {
       setDarkMode(`light`);
       document.body.style.backgroundColor = `white`;
-      // document.body.style.color = `blacks`;
+      // document.body.style.color = `white`;
       showAlert(`Light mode enabled`, `success`);
       document.title = `Light Mode Enabled`;
     }
@@ -67,7 +67,7 @@ function App() {
         <div className="container">
           <Routes>
             {/* We should use the 'exact' word for the precise location of the file in order to avoid confusion */}
-            <Route exact path="/about" element={<About/>}>
+            <Route exact path="/about" element={<About mode={darkMode}/>}>
             </Route>
             <Route exact path="" element={<TextForm showAlert={showAlert} heading="Enter your message" />}>
             </Route>
