@@ -30,8 +30,19 @@ function App() {
     }, 2000);
   }
 
+  const removeBodyClass = ()=>{
+    document.body.classList.remove(`bg-light`);
+    document.body.classList.remove(`bg-dark`);
+    document.body.classList.remove(`bg-primary`);
+    document.body.classList.remove(`bg-success`);
+    document.body.classList.remove(`bg-warning`);
+    document.body.classList.remove(`bg-danger`);
+  }
 
-  const toggleMode = () => {
+  const toggleMode = (cls) => {
+    removeBodyClass();
+    document.body.classList.add(`bg-`+cls);
+    console.log(cls);
     if (darkMode === `light`) {
       setDarkMode(`dark`);
       document.body.style.backgroundColor = `black`;

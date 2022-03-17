@@ -53,7 +53,8 @@ export default function TextForm(props) {
 
             <div className="container my-4">
                 <h1>Text Summary</h1>
-                <p>{text.split(" ").filter((e)=>{return e.length!==0}).length} words and {text.length} characters.</p>
+                {/* Here \s+ represents whitespaces and the line break */}
+                <p>{text.split(/\s+/).filter((e)=>{return e.length!==0}).length} words and {text.length} characters.</p>
 
                 <p>Average Time Required To Read Above Content Is: {0.008 * text.split("").length} Minutes</p>
 
